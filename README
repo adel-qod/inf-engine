@@ -16,15 +16,15 @@ The syntax of the rules:
 {logical expression} > {single-fact}
 
 The logical expression has the following grammer:
+(NONE is simply an epsilon in CFG)
 exp > exp1 or-exp
 or-exp > | exp1 or-exp
 or-exp > NONE
 exp1 > exp2 and-exp
 and-exp > & exp2 and-exp
 and-exp > NONE
-exp2 > NOT exp3 
+exp2 > ! exp3 
 exp2 > exp3
-not-exp > ! exp3
 exp3 > ID
 exp3 > (exp)
 
