@@ -1,0 +1,40 @@
+                                  Facts Inference Engine
+
+This program reads a set of rules from a file and set of facts from another
+file and then using the rules, it inferences some new facts if at all possible
+according to the rules.
+
+It uses forward chaining: Given a set of rules and facts, we read the rules and
+evaluate them and check if we get new facts
+
+This program is written in Python and is divided in three modules and a main:
+1- Rules parsing module: reads the rules and returns a tree
+2- Forward chaining inference: evaluates the rules tree and spits new facts
+4- The main module which glues everything together
+
+The syntax of the rules:
+{logical expression} > {single-fact}
+
+The logical expression has the following grammer:
+exp > exp1 or-exp
+or-exp > | exp1 or-exp
+or-exp > NONE
+exp1 > exp2 and-exp
+and-exp > & exp2 and-exp
+and-exp > NONE
+exp2 > NOT exp3 
+exp2 > exp3
+not-exp > ! exp3
+exp3 > ID
+exp3 > (exp)
+
+Files organization:
+main.py: The main function and helper functions to parse argv and read files
+parser.py: Contains the rules lexer and parser
+forward.py: Contains the code to evaluate using forward chaining
+
+The code is available under the BSD license
+
+Contact info:
+    Adel Qodmani
+    mpcadel@gmail.com
