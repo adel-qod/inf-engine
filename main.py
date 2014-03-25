@@ -87,13 +87,13 @@ def parse_argv(argv):
 def read_rules(rules):
   ''' Reads the rules files line by line and returns an array of lines '''
   with open(rules, "r") as f:
-    lines = [line for line in f if line != '\n']
+    lines = [line for line in f if line != '\n' and line[0] != '#']
   return [line.strip() for line in lines]
 
 def read_facts(facts):
   ''' Reads the facts file line by line and returns a dict of lines '''
   with open(facts, "r") as f:
-    lines = [line for line in f if line != '\n']
+    lines = [line for line in f if line != '\n' and line[0] != '#']
   l = [line.strip() for line in lines]
   return dict((el, True) for el in l)
 
